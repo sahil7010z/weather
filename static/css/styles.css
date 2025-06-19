@@ -1,0 +1,30 @@
+body.landing {
+  background: linear-gradient(to right, #6dd5ed, #2193b0);
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center {
+  max-width: 600px;
+}
+
+.btn {
+  background: white;
+  color: #2193b0;
+  padding: 15px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background: #0f6482;
+  color: white;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <h2>Check Weather</h2>
+  <form id="weather-form">
+    <input type="text" name="city" placeholder="Enter City" required>
+    <button type="submit">Get Weather</button>
+  </form>
+  <div id="result"></div>
+
+  <script>
+    document.getElementById('weather-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      const response = await fetch('/get_weather', {
+        method: 'POST',
+        body: formData
+      });
+      const data = await response.json();
+      document.getElementById('result').innerHTML = `
+        <h3>${data.name}</h3>
+        <p>Temperature: ${data.main.temp}°C</p>
+        <p>Weather: ${data.weather[0].description}</p>
+      `;
+    });
+  </script>
+</body>
+</html>
